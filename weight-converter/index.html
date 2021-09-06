@@ -11,16 +11,24 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-8 offset-md-2">
                 <h2 class="display-4 text-center mt-4">Weight Converter</h2>
 
                 <div class="form-group mt-5">
                     <input 
                         class="form-control form-control-lg mb-2"
-                        id="input-lbs"
+                        id="input-weight"
                         type="number"
                         placeholder="Enter weight in pounds" />
                     
+                    <select class="custom-select" id="select-weight">
+                        <option selected>Choose weight type</option>
+                        <option value="lbs">Pounds</option>
+                        <option value="gm">Grams</option>
+                        <option value="kg">Kilograms</option>
+                        <option value="oz">Ounces</option>
+                    </select>
+
                     <small 
                         class="form-text text-muted"
                         id="weightHelp">
@@ -28,25 +36,32 @@
                     </small>
                 </div>
 
-                <div id="results">
+                <div id="results" class="mb-4">
                     <div class="card bg-primary mb-2">
                         <div class="card-body">
                             <h4>Kilograms</h4>
-                            <div id="kg-output"></div>
+                            <div id="kg-output">0</div>
                         </div>
                     </div>
 
                     <div class="card bg-success mb-2">
                         <div class="card-body">
                             <h4>Grams</h4>
-                            <div id="gm-output"></div>
+                            <div id="gm-output">0</div>
                         </div>
                     </div>
                     
-                    <div class="card bg-danger">
+                    <div class="card bg-danger mb-2">
                         <div class="card-body">
                             <h4>Ounces</h4>
-                            <div id="oz-output"></div>
+                            <div id="oz-output">0</div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-warning">
+                        <div class="card-body">
+                            <h4>Pounds</h4>
+                            <div id="lbs-output">0</div>
                         </div>
                     </div>
                 </div>
