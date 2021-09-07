@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Autocomplete app - Vanilla JS</title>
+</head>
+<body class="bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <h1 class="text-center display-5 mt-4">
+                    <i class="fas fa-flag-usa"></i>
+                    State Capital Lookup
+                </h1>
+
+                <div class="mt-5 mb-3">
+                    <input 
+                        class="form-control form-control-lg"
+                        id="input-state" 
+                        type="text"
+                        placeholder="Enter state name or abbreviation">
+                </div>
+
+                <div id="search-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
