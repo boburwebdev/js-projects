@@ -2,9 +2,8 @@ const inputState = document.getElementById('input-state');
 const searchResults = document.getElementById('search-results');
 
 async function getStates() {
-    const res = await fetch('/states.json');
+    const res = await fetch('states.json');
     const states = await res.json();
-
     return states;
 }
 
