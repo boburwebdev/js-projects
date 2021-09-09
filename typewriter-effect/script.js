@@ -11,18 +11,14 @@ const Typewriter = function(txtElement, words, waitTime = 3000) {
 Typewriter.prototype.type = function() {
     
     const currentWordIndex = this.wordIndex % this.words.length;
-
-    let currentWord = this.words[currentWordIndex];
+    const currentWord = this.words[currentWordIndex];
+    let typeSpeed = 300;
 
     if (this.isDeleting) {
         this.txt = currentWord.substr(0, this.txt.length - 1);
     } else {
         this.txt = currentWord.substr(0, this.txt.length + 1);
     }
-
-    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
-
-    let typeSpeed = 300;
 
     if (this.isDeleting) {
         typeSpeed /= 2;
@@ -36,6 +32,8 @@ Typewriter.prototype.type = function() {
         this.wordIndex++;
         typeSpeed = 500;
     }
+
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
     setTimeout(() => this.type(), typeSpeed);
 }
