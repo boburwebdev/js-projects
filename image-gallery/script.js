@@ -8,14 +8,31 @@ const panelItems = document.querySelectorAll('.panel');
 
 
 // Alternative solution with currentTarget
-panelItems.forEach(panel => {
-    panel.addEventListener('click', e => {
-        e.currentTarget.classList.toggle('open');
-    });
+// panelItems.forEach(panel => {
+//     panel.addEventListener('click', e => {
+//         e.currentTarget.classList.toggle('open');
+//     });
 
-    panel.addEventListener('transitionend', e => {
-        if (e.propertyName.includes('flex')) {
-            e.currentTarget.classList.toggle('open-active');
-        }
-    })
+//     panel.addEventListener('transitionend', e => {
+//         if (e.propertyName.includes('flex')) {
+//             e.currentTarget.classList.toggle('open-active');
+//         }
+//     })
+// })
+
+
+// Alternative solution
+panelItems.forEach(panel => {
+    panel.addEventListener('click', toggleOpen);
+    panel.addEventListener('transitionend', toggleOpenActive)
 });
+
+function toggleOpen() {
+    this.classList.toggle('open');
+}
+
+function toggleOpenActive(e) {
+    if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+    }
+}
