@@ -34,3 +34,7 @@ body {
 .subtitle {
     font-size: 1.2rem;
 }
+
+#txt-type > .txt {
+    border-right: .15rem solid #777;
+}
