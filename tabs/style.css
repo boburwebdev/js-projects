@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=PT+Serif:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.container {
+    width: 800px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.tabs {
+    background-color: #fff;
+}
+
+.tabs-header {
+    background-color: #f4f4f4;
+    display: flex;
+    margin-top: 3rem;
+}
+
+.tabs-header--item {
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 1.2rem 2.8rem;
+    cursor: pointer;
+    border-top: 4px solid transparent;
+}
+
+.tabs-header--item.active,
+.tabs-header--item:hover {
+    background-color: #fff;
+    font-weight: 700;
+    border-top: 4px solid orangered;
+    transition: all .3s;
+}
+
+.tabs-body {
+    padding: 2rem 2.8rem;
+}
+
+.tabs-body--item {
+    display: none;
+}
+
+.tabs-body--item.active {
+    display: block;
+}
+
+.tabs-body p {
+    margin-bottom: 1rem;
+}
+
+.tabs-body p:last-child {
+    margin-bottom: 0;
+}
