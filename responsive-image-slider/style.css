@@ -82,7 +82,17 @@ h1 {
 }
 
 
+@media (max-width: 600px) {
+    .slider-item .slider-item--content {
+        bottom: -300px;
+        left: 0px;
+        width: 100%;
+    }
 
+    .slider-item.active-slide .slider-item--content {
+        transform: translateY(-300px);
+    }
+}
 
 
 .slider-item:first-child {
