@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: #060402;
+    color: #fff; */
+    font-family: 'Raleway', sans-serif;
+}
+
+.accordion {
+    width: 800px;
+    max-width: 90%;
+    margin: 3rem auto;
+}
+
+.accordion-title {
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.accordion-item {
+    margin-bottom: 1.5rem;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .15), -2px -2px 8px rgba(0, 0, 0, .15);
+}
+
+.accordion-item--header {
+    padding: 1.25rem 3rem 1.25rem 1.5rem;
+    font-weight: 600;
+    line-height: 1rem;
+    position: relative;
+    min-height: 3.5rem;
+}
+
+.accordion-item--header::after {
+    content: '\002B';
+    font-size: 2rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.accordion-item--header.active::after {
+    content: '\002D';
+    transition: all .3s;
+}
+
+.accordion-item--body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s;
+}
+
+.accordion-item--body-content {
+    padding: 1.5rem;
+    line-height: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, .25);
+}
+
