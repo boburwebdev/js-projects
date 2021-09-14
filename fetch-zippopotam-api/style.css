@@ -1,0 +1,12 @@
+.icon-response {
+    display: none;
+}
+
+.icon-response.show {
+    display: flex;
+    cursor: pointer;
+}
+
+#close-output {
+    cursor: pointer;
+}
