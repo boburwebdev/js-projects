@@ -1,0 +1,7 @@
+.fact-body {
+    display: none;
+}
+
+.fact-body.show {
+    display: block;
+}
