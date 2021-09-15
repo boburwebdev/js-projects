@@ -13,11 +13,20 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h1>US Location info</h1>
-                <p>Enter a zipcode to get the location info. <span class="text-muted">Range: 00210 - 99950</span></p>
+                <h1>Location info</h1>
+                <p>Enter a zipcode to get the location info. <span class="text-muted zipcode-range" id="zipcode-range"></span></p>
 
-                <form id="form-zipcode">
-                    <div class="input-group">
+                <form  class="mb-4" id="form-zipcode">
+                    <div class="input-group mb-2">
+                        <select class="form-select form-select-lg" id="select-country" aria-label="Default select example">
+                            <option selected>Choose Country</option>
+                            <option value="US">USA</option>
+                            <option value="DE">Germany</option>
+                            <option value="ES">Spain</option>
+                            <option value="FR">France</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-2">
                         <span class="input-group-text">
                             <i class="fas fa-map-pin"></i>
                         </span>
@@ -29,9 +38,12 @@
                             <i class="fas fa-times"></i>
                         </span>
                     </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn bg-primary btn-lg text-white" type="submit">Get location info</button>
+                    </div>
                 </form>       
 
-                <div class="card output mt-4" id="output">
+                <div class="card output" id="output">
                     <div class="output-content text-dark p-3">Results will be shown here</div>
                 </div>
             </div>
