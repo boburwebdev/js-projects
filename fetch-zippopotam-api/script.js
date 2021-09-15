@@ -1,48 +1,71 @@
 const formZipcode = document.getElementById('form-zipcode');
 const inputZipcode = document.getElementById('input-zipcode');
+const selectCountry = document.getElementById('select-country');
 const output = document.getElementById('output');
+const zipcodeRange = document.getElementById('zipcode-range');
 
-formZipcode.addEventListener('submit', e => {
+const objZipcodeRange = {
+    'US': '00210 - 99950',
+    'DE': '01067 - 99998',
+    'ES': '01001 - 52080',
+    'FR': '01000 - 98799'
+}
+
+selectCountry.addEventListener('change', showZipcodeRange)
+formZipcode.addEventListener('submit', getLocationInfoFromAPI);
+
+
+function showZipcodeRange() {
+    if (objZipcodeRange[selectCountry.value]) {
+        zipcodeRange.classList.add('show');
+        zipcodeRange.innerText = `Range: ${objZipcodeRange[selectCountry.value]}`;
+    } else {
+        zipcodeRange.classList.remove('show');
+    }
+}
+
+
+function getLocationInfoFromAPI(e) {
     e.preventDefault();
 
-    fetch(`http://api.zippopotam.us/us/${inputZipcode.value}`)
+    if (inputZipcode.value !== '' && selectCountry.value !== '') {
+        fetch(`http://api.zippopotam.us/${selectCountry.value}/${inputZipcode.value}`)
         .then(response => {
             if (response.status !== 200) {
-                displayUIonError()
+                displayUIonError('Invalid zipcode, please try again.');
                 throw Error('Invalid zipcode');
             } else {
                 return response.json();
             }
         })
         .then(data => {
-            displayUIonSuccess(data)
+            displayUIonSuccess(data);
         })
-        .catch(err => console.log(err));
-});
-
-
-function resetUI(input, output, iconSelector) {
-    output.innerHTML = `<div class="output-content text-dark p-3">Results will be shown here</div>`;
-    input.value = ``;
-    document.querySelector(iconSelector).classList.remove('show');
+        .catch(err => displayUIonError(err));
+    } else {
+        displayUIonError('Please, fill in all fields');
+    }
 }
 
-function displayUIonError () {
+
+function displayUIonError(errorMessage) {
     document.querySelector('.icon-check').classList.remove('show');
     document.querySelector('.icon-remove').classList.add('show');
 
     output.innerHTML = `
         <div class="output-content bg-danger">
             <div class="card-body">
-                Invalid zipcode, please try again.
+                ${errorMessage}
             </div>
         </div>
     `;
 
     document.querySelector('.icon-remove').addEventListener('click', () => {
-        resetUI(inputZipcode, output, '.icon-remove');
+        // resetUI(output, '.icon-remove');
+        clearUIfromErrors();
     });
 }
+
 
 function displayUIonSuccess(data) {
     document.querySelector('.icon-remove').classList.remove('show');
@@ -61,6 +84,22 @@ function displayUIonSuccess(data) {
     `;
 
     document.getElementById('close-output').addEventListener('click', () => {
-        resetUI(inputZipcode, output, '.icon-check');
+        resetUI(output, '.icon-check');
     });
+}
+
+
+function resetUI(output, iconSelector) {
+    formZipcode.reset();
+    output.innerHTML = `<div class="output-content text-dark p-3">Results will be shown here</div>`;
+
+    zipcodeRange.classList.remove('show');
+    document.querySelector(iconSelector).classList.remove('show');
+}
+
+
+function clearUIfromErrors() {
+    output.innerHTML = `<div class="output-content text-dark p-3">Results will be shown here</div>`;
+    inputZipcode.value = ``;
+    document.querySelector('.icon-remove').classList.remove('show');
 }

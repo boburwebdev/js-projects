@@ -10,3 +10,11 @@
 #close-output {
     cursor: pointer;
 }
+
+.zipcode-range {
+    display: none;
+}
+
+.zipcode-range.show {
+    display: inline-block;
+}
