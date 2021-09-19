@@ -8,36 +8,42 @@
     <title>Quiz App</title>
 </head>
 <body>
-    <!-- <div class="content">
+    <div class="quiz-start" id="quiz-start">
         <button class="btn btn-start-quiz" id="btn-start-quiz">Start quiz</button>
-    </div> -->
+    </div>
 
-    <div class="quiz-container" id="quiz">
-        <div class="quiz-text">
-            <h1 class="quiz-title" id="quiz-title">
-                Test your knowledge
-            </h1>
+    <div class="quiz-container">
+        <div class="quiz-content hide" id="quiz-content">
+            <div class="quiz-text">
+                <h1 class="quiz-title" id="quiz-title">
+                    Test your knowledge
+                </h1>
 
-            <ul class="answers-list">
-                <li class="answer-item">
-                    <input class="answer" id="a" type="radio" name="answer">
-                    <label id="a_text" for="a">Answer A</label>
-                </li>
-                <li class="answer-item">
-                    <input class="answer" id="b" type="radio" name="answer">
-                    <label id="b_text" for="b">Answer B</label>
-                </li>
-                <li class="answer-item">
-                    <input class="answer" id="c" type="radio" name="answer">
-                    <label id="c_text" for="c">Answer C</label>
-                </li>
-                <li class="answer-item">
-                    <input class="answer" id="d" type="radio" name="answer">
-                    <label id="d_text" for="d">Answer D</label>
-                </li>
-            </ul>
+                <ul class="answers-list">
+                    <li class="answer-item">
+                        <input class="answer" id="a" type="radio" name="answer">
+                        <label id="a_text" for="a">Answer A</label>
+                    </li>
+                    <li class="answer-item">
+                        <input class="answer" id="b" type="radio" name="answer">
+                        <label id="b_text" for="b">Answer B</label>
+                    </li>
+                    <li class="answer-item">
+                        <input class="answer" id="c" type="radio" name="answer">
+                        <label id="c_text" for="c">Answer C</label>
+                    </li>
+                    <li class="answer-item">
+                        <input class="answer" id="d" type="radio" name="answer">
+                        <label id="d_text" for="d">Answer D</label>
+                    </li>
+                </ul>
+            </div>
+            <button class="btn btn-submit" id="btn-submit">Submit</button>
+            </div>
+        <div class="quiz-results hide" id="quiz-results">
+            <h2 class="quiz-results--title" id="quiz-results--title"></h2>
+            <button class="btn btn-restart" id="btn-restart">Retake quiz</button>
         </div>
-        <button class="btn btn-submit" id="btn-submit">Submit</button>
     </div>
     <script src="script.js"></script>
 </body>
