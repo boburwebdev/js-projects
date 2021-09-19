@@ -39,27 +39,32 @@ const questionsData = [
         d: 'Lisbon',
         correctAnswer: 'b'
     },
-]
+];
 
-const quiz = document.getElementById('quiz');
-const questionEl = document.getElementById('quiz-title');
+const quizStart = document.getElementById('quiz-start');
+const quizContent = document.getElementById('quiz-content');
+const quizResults = document.getElementById('quiz-results');
+const quizResultsTitle = document.getElementById('quiz-results--title');
+
+const questionTitle = document.getElementById('quiz-title');
 const answerInputs = document.querySelectorAll('.answer');
 const a_text = document.getElementById('a_text');
 const b_text = document.getElementById('b_text');
 const c_text = document.getElementById('c_text');
 const d_text = document.getElementById('d_text');
+
+const btnStartQuiz = document.getElementById('btn-start-quiz');
 const btnSubmit = document.getElementById('btn-submit');
+const btnRestart = document.getElementById('btn-restart');
 
 let currentQuizIndex = 0;
 let quizScore = 0;
-
-loadQuiz();
 
 function loadQuiz() {
     deleteSelection();
 
     const currentQuizData = questionsData[currentQuizIndex];
-    questionEl.innerText = currentQuizData.question;
+    questionTitle.innerText = currentQuizData.question;
     a_text.innerText = currentQuizData.a;
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
@@ -84,7 +89,7 @@ function deleteSelection() {
     })
 }
 
-btnSubmit.addEventListener('click', () => {
+function submitResult() {
     const answer = getUserAnswer();
 
     if (answer) {
@@ -93,15 +98,31 @@ btnSubmit.addEventListener('click', () => {
         }
         
         currentQuizIndex++;
+    } else {
+        alert('please choose an answer');
     }
 
     if (currentQuizIndex < questionsData.length) {
         loadQuiz();
     } else {
-        quiz.innerHTML = `
-            <h2 class="quiz-results">You answered correctly at ${quizScore} out of ${questionsData.length} questions.</h2>
-        `;
-    }
+        quizResults.classList.remove('hide');
+        quizContent.classList.add('hide');
 
-    console.log(quizScore);
-})
+        quizResultsTitle.innerText = `You answered correctly at ${quizScore} questions out of ${questionsData.length}.`;
+    }
+}
+
+function startQuiz() {
+    quizStart.classList.add('hide');
+    quizContent.classList.remove('hide');
+}
+
+function restartQuiz() {
+    location.reload();
+}
+
+btnSubmit.addEventListener('click', submitResult);
+btnStartQuiz.addEventListener('click', startQuiz);
+btnRestart.addEventListener('click', restartQuiz);
+
+loadQuiz();
