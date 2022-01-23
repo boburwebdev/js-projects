@@ -1,0 +1,62 @@
+:root {
+    --color-white: #fff;
+    --color-dark: #2b2b2b;
+    --color-light: #808080;
+    --color-accent: #5d71dd;
+    --gutter: 20px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--color-dark);
+    padding: 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'PT Serif', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.title {
+    font-size: 48px;
+}
+
+.container {
+    width: 1244px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: var(--gutter);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: 3 span;
+    grid-gap: var(--gutter);
+}

@@ -1,0 +1,23 @@
+.filters {
+    position: relative;
+}
+
+.filters-price__inputs-item {
+    width: 100%;
+}
+
+.fixed-filters {
+    position: fixed;
+    top: var(--gutter);
+    left: 0;
+}
+
+.absolute-filters {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.sample-placeholder-height {
+    height: 3000px;
+}
